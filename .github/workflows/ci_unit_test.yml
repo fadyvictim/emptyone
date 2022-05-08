@@ -17,7 +17,7 @@ defaults:
 
 jobs:
   check_status:
-    if: github.repository == 'awslabs/raf'
+    if: github.repository == 'fadyvictim/raf'
     runs-on: ubuntu-latest
     outputs:
       cpu_image: "metaprojdev/raf:ci_cpu-v0.20"
@@ -70,7 +70,7 @@ jobs:
 
   test_on_cpu:
     needs: [check_status]
-    if: github.repository == 'awslabs/raf'
+    if: github.repository == 'fadyvictim/raf'
     runs-on: ubuntu-latest
     steps:
       - uses: haya14busa/action-workflow_run-status@v1
@@ -116,7 +116,7 @@ jobs:
 
   test_on_gpu:
     needs: [check_status]
-    if: github.repository == 'awslabs/raf'
+    if: github.repository == 'fadyvictim/raf'
     runs-on: ubuntu-latest
     steps:
       - uses: haya14busa/action-workflow_run-status@v1
@@ -162,7 +162,7 @@ jobs:
 
   test_on_multi_gpu:
     needs: [check_status]
-    if: github.repository == 'awslabs/raf'
+    if: github.repository == 'fadyvictim/raf'
     runs-on: ubuntu-latest
     steps:
       - uses: haya14busa/action-workflow_run-status@v1
@@ -209,7 +209,7 @@ jobs:
   update_ci_badge:
     needs: [test_on_cpu, test_on_gpu, test_on_multi_gpu]
     # Run this job whatever the unit tests were success or not.
-    if: ${{ always() && github.repository == 'awslabs/raf' }}
+    if: ${{ always() && github.repository == 'fadyvictim/raf' }}
     runs-on: ubuntu-latest
     steps:
       - uses: haya14busa/action-workflow_run-status@v1
